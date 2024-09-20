@@ -1,6 +1,19 @@
 import { Link } from "react-router-dom";
+import { SignInContainer } from "./identity/SignInContainer.jsx";
+import React, { useState } from 'react'
 
-export const NavigationBar = () => {
+export function NavigationBar() {
+
+    const [loginPopupClass, setHideLightbox] = useState('hide-loginPopup');
+
+    function toggleLoginPopup() {
+
+        if (loginPopupClass === 'hide-loginPopup')
+            setHideLightbox('loginPopup')
+        else
+            setHideLightbox('hide-loginPopup')
+    }
+
 
     return (
         <>
@@ -22,8 +35,17 @@ export const NavigationBar = () => {
 
                                     {/* UI elements for unauthenticated users */}
                                     {/* <UnauthenticatedTemplate> */}
+
+
+
                                     <li className="nav-item dropdown">
-                                        <Link to={`profile`} className="nav-link wg-white">Sign in</Link>
+                                        <Link className="nav-link wg-white" onClick={toggleLoginPopup}>Sign in</Link>
+
+                                        <div className="loginPopupWrap">
+                                            <div id="loginPopupContainer" className={loginPopupClass}>
+                                                <SignInContainer></SignInContainer>
+                                            </div>
+                                        </div>
                                     </li>
                                     {/* </UnauthenticatedTemplate> */}
 
