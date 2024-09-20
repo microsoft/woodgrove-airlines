@@ -11,3 +11,147 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/******************** General *********************/
+
+.wg-ml-10 {
+  margin-left: 10px
+}
+
+.wg-ml-5 {
+  margin-left: 5px
+}
+
+.wg-white {
+  color: white;
+}
+
+.wg-white:hover {
+  color: orange;
+}
+
+/******************** Header *********************/
+.wg-header-logo {
+  height: 24px;
+}
+
+.wg-header-container {
+  background-color: #003049 !important;
+  color: white !important;
+}
+
+/****************** Home page *******************/
+.wg-home-container {
+  padding-top: 30px;
+}
+
+.wg-home-find-offers {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+.wg-home-options-container {
+  background-color: white;
+  border-radius: .5rem;
+  background: rgba(255, 250, 250, 0.8);
+  padding-top: 10px;
+  padding-left: 40px;
+  padding-bottom: 20px;
+}
+
+#wg-home-options {
+  margin-top: 10px;
+}
+
+#SeachFlights {
+  margin-top: 9px;
+}
+
+.wg-home-header {
+  text-align: center;
+  padding-top: 45px;
+  padding-bottom: 15px;
+  color: white;
+}
+
+/******** home page jumbotron***********/
+.wg-jumbotron {
+  background-image: url(./images/home/background.jpg);
+  width: 100%;
+  height: 300px;
+  position: absolute;
+  top: 55px;
+  animation: scroll 800s linear infinite;
+  z-index: -20;
+}
+
+@keyframes scroll {
+  100% {
+    background-position: right 0px bottom -400%;
+  }
+}
+
+
+/******************** Cards *********************/
+.wg-card-image {
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 220px;
+  border-bottom-color: red;
+  border-bottom-width: 10px;
+  border-bottom-style: solid;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
+.wg-card-image-india {
+  background-image: url(./images/home/india.png)
+}
+
+.wg-card-image-uae {
+  background-image: url(./images/home/uae.png)
+}
+
+.wg-card-image-uk {
+  background-image: url(./images/home/uk.png)
+}
+
+.wg-card-body {
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+.wg-card {
+  border-style: none;
+  height: 500px;
+  margin-bottom: 50px;
+}
+
+.wg-card-content {
+  padding: 15px;
+}
+
+.wg-card-title {
+  padding-top: 15px;
+}
+
+/******************** Footer *********************/
+.footer {
+  /* position: absolute; */
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+}
+
+.wg-footer-link {
+  padding-left: 30px;
+  padding-right: 2px;
+}
+
+.wg-footer-app-version {
+  font-size: x-small;
+}

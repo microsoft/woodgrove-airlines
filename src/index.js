@@ -1,13 +1,52 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+
+
+// Woodgrove pages
+//import App from './App';
+import Layout from "./pages/Layout.jsx";
+import Token from "./pages/Token.jsx";
+import Home from "./pages/Home.jsx";
+import Profile from "./pages/Profile.jsx";
+import NoPage from "./pages/NoPage.jsx";
+import ErrorPage from "./pages/Error.jsx";
+// End of Woodgrove pages
+
 import reportWebVitals from './reportWebVitals';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "token",
+        element: <Token />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
+      },
+      {
+        path: "*",
+        element: <NoPage />,
+      }
+    ]
+  }
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
