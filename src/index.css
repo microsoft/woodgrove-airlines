@@ -72,6 +72,10 @@ code {
   text-decoration: none;
 }
 
+.wg-identity-signIn-button{
+  margin-right: 100px;
+}
+
 .wg-identity-checkbox{
   font-size: smaller;
 }

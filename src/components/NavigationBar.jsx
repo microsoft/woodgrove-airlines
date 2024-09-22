@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
-import { SignInContainer } from "./identity/SignInContainer.jsx";
 import React, { useState } from 'react'
+import { SignInPassword } from "./identity/SignInPassword.jsx";
+import { SignUpPassword } from "./identity/SignUpPassword.jsx";
+import { Sspr } from "./identity/Sspr.jsx";
 
 export function NavigationBar() {
 
     const [loginPopupClass, setHideLightbox] = useState('hide-loginPopup');
     const [signInFlow, setSignInFlowState] = useState(1);
-
-    const setSignInFlow = (flow) => {
-        setSignInFlowState(flow)
-    }
+    const [displayName, setDisplayNameSate] = useState("");
 
     function toggleLoginPopup() {
 
@@ -26,6 +25,10 @@ export function NavigationBar() {
     function hideLoginPopup() {
         // Hide the signIn UI element
         setHideLightbox('hide-loginPopup')
+    }
+
+    function signOut() {
+        setDisplayNameSate("");
     }
 
     return (
@@ -47,33 +50,53 @@ export function NavigationBar() {
                                 <ul className="navbar-nav">
 
                                     {/* UI elements for unauthenticated users */}
-                                    {/* <UnauthenticatedTemplate> */}
+                                    {displayName === "" &&
+                                        <li className="nav-item dropdown">
+                                            <Link className="nav-link wg-white wg-identity-signIn-button" onClick={toggleLoginPopup}>Sign in</Link>
+                                            <div className="loginPopupWrap">
+                                                <div id="loginPopupContainer" className={loginPopupClass}>
 
 
+                                                    {/* Close button */}
+                                                    <div className="position-relative">
+                                                        <div className="position-absolute top-0 end-0">
+                                                            <button type="button" className="btn-close wg-identity-close end-0" onClick={hideLoginPopup}></button>
+                                                        </div>
+                                                    </div>
 
-                                    <li className="nav-item dropdown">
-                                        <Link className="nav-link wg-white" onClick={toggleLoginPopup}>Sign in</Link>
+                                                    {/* flow: 1) SignInPassword 2) SignUpPassword 3) Sspr 4) SignInOtp 5) SignUpOtp */}
+                                                    {signInFlow === 1 && <SignInPassword
+                                                        setSignInFlowState={setSignInFlowState}
+                                                        setDisplayNameSate={setDisplayNameSate}
+                                                    ></SignInPassword>}
 
-                                        <div className="loginPopupWrap">
-                                            <div id="loginPopupContainer" className={loginPopupClass}>
-                                                <SignInContainer SignUpPassword onSignInFlowClick={setSignInFlow} signInFlow={signInFlow} hideLoginPopupFunc={hideLoginPopup}></SignInContainer>
+                                                    {signInFlow === 2 && <SignUpPassword
+                                                        setSignInFlowState={setSignInFlowState}
+                                                        setDisplayNameSate={setDisplayNameSate}
+                                                    ></SignUpPassword>}
+
+                                                    {signInFlow === 3 && <Sspr
+                                                        setSignInFlowState={setSignInFlowState}
+                                                        setDisplayNameSate={setDisplayNameSate}
+                                                    ></Sspr>}
+
+
+                                                </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                    {/* </UnauthenticatedTemplate> */}
+                                        </li>}
 
-                                    {/* UI elements for authenticated users */}
-                                    {/* <AuthenticatedTemplate> */}
-                                    <li className="nav-item">
-                                        {/* <Link to={`token`} className="nav-link">Hello {activeAccount ? activeAccount.name : 'Unknown'}</Link> */}
-                                    </li>
-                                    <li className="nav-item">
-                                        <Link to={`profile`} className="nav-link wg-white">Profile</Link>
-                                    </li>
-                                    <li className="nav-item">
-                                        <Link to={`profile`} className="nav-link wg-white">Sign out</Link>
-                                    </li>
-                                    {/* </AuthenticatedTemplate> */}
+                                    {displayName !== "" &&
+                                        <>
+                                            <li className="nav-item">
+                                                <Link to={`token`} className="nav-link wg-white">{displayName}</Link>
+                                            </li>
+                                            <li className="nav-item">
+                                                <Link to={`profile`} className="nav-link wg-white">Profile</Link>
+                                            </li>
+                                            <li className="nav-item">
+                                                <Link to={`profile`} className="nav-link wg-white" onClick={signOut}>Sign out</Link>
+                                            </li>
+                                        </>}
                                 </ul>
                             </div>
                         </div>

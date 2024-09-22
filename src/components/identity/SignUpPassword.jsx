@@ -1,7 +1,7 @@
-export const SignUpPassword = ({ onSignInFlowClick }) => {
+export const SignUpPassword = ({ setSignInFlowState, setDisplayNameSate  }) => {
 
     const goToSignInPassword = () => {
-        onSignInFlowClick(1);
+        setSignInFlowState(1);
     }
 
     return (

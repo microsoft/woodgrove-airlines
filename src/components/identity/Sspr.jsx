@@ -1,7 +1,7 @@
-export const Sspr = ({ onSignInFlowClick }) => {
+export const Sspr = ({ setSignInFlowState, setDisplayNameSate }) => {
 
     const goToSignInPassword = () => {
-        onSignInFlowClick(1);
+        setSignInFlowState(1);
     }
 
     return (
