@@ -58,7 +58,7 @@ code {
   border-style: solid;
   padding: 20px;
   width: 300px;
-  height: 500px;
+  overflow: auto;
 }
 
 .wg-form-label {
@@ -74,6 +74,10 @@ code {
 
 .wg-identity-checkbox{
   font-size: smaller;
+}
+
+.wg-identity-close{
+  font-size: x-small!important;
 }
 
 .popWrap {

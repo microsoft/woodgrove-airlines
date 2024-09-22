@@ -1,11 +1,11 @@
-export const SignInPassword = ({ onClick, count }) => {
+export const SignInPassword = ({ onSignInFlowClick }) => {
 
     const goToSignUpPassword = () => {
-        onClick(2);
+        onSignInFlowClick(2);
     }
 
     const goToSspr = () => {
-        onClick(3);
+        onSignInFlowClick(3);
     }
 
 

@@ -5,15 +5,28 @@ import React, { useState } from 'react'
 export function NavigationBar() {
 
     const [loginPopupClass, setHideLightbox] = useState('hide-loginPopup');
+    const [signInFlow, setSignInFlowState] = useState(1);
+
+    const setSignInFlow = (flow) => {
+        setSignInFlowState(flow)
+    }
 
     function toggleLoginPopup() {
 
-        if (loginPopupClass === 'hide-loginPopup')
-            setHideLightbox('loginPopup')
+        if (loginPopupClass === 'hide-loginPopup') {
+            // Show the signIn UI element
+            setSignInFlowState(1)
+            setHideLightbox('loginPopup');
+        }
         else
+            // Hide the signIn UI element
             setHideLightbox('hide-loginPopup')
     }
 
+    function hideLoginPopup() {
+        // Hide the signIn UI element
+        setHideLightbox('hide-loginPopup')
+    }
 
     return (
         <>
@@ -43,7 +56,7 @@ export function NavigationBar() {
 
                                         <div className="loginPopupWrap">
                                             <div id="loginPopupContainer" className={loginPopupClass}>
-                                                <SignInContainer></SignInContainer>
+                                                <SignInContainer SignUpPassword onSignInFlowClick={setSignInFlow} signInFlow={signInFlow} hideLoginPopupFunc={hideLoginPopup}></SignInContainer>
                                             </div>
                                         </div>
                                     </li>

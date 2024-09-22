@@ -1,7 +1,7 @@
-export const Sspr = ({ onClick, count }) => {
+export const Sspr = ({ onSignInFlowClick }) => {
 
     const goToSignInPassword = () => {
-        onClick(1);
+        onSignInFlowClick(1);
     }
 
     return (
