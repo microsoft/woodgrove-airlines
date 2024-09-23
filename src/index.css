@@ -38,6 +38,10 @@ code {
   color: orange !important;
 }
 
+.wg-h1{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 /******************** Sign-in *********************/
 
 .loginPopup {

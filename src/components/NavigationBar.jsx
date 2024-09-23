@@ -29,6 +29,7 @@ export function NavigationBar() {
 
     function signOut() {
         setDisplayNameSate("");
+        localStorage.clear();
     }
 
     return (
@@ -94,7 +95,7 @@ export function NavigationBar() {
                                                 <Link to={`profile`} className="nav-link wg-white">Profile</Link>
                                             </li>
                                             <li className="nav-item">
-                                                <Link to={`profile`} className="nav-link wg-white" onClick={signOut}>Sign out</Link>
+                                                <Link className="nav-link wg-white" onClick={signOut}>Sign out</Link>
                                             </li>
                                         </>}
                                 </ul>
