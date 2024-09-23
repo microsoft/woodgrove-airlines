@@ -13,3 +13,4 @@ Add a new rule with the following settings:
 - Rule name: **CorsLive**
     - Condition: if **Request header** begins with `https://airlines.woodgrovedemo.com` 
     - Action (response header): **Append** the **Access-Control-Allow-Origin** header with value of `https://airlines.woodgrovedemo.com` 
+ 
