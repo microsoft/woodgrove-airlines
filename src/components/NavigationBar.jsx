@@ -91,9 +91,9 @@ export function NavigationBar() {
                                             <li className="nav-item">
                                                 <Link to={`token`} className="nav-link wg-white">{displayName}</Link>
                                             </li>
-                                            <li className="nav-item">
+                                            {/* <li className="nav-item">
                                                 <Link to={`profile`} className="nav-link wg-white">Profile</Link>
-                                            </li>
+                                            </li> */}
                                             <li className="nav-item">
                                                 <Link className="nav-link wg-white" onClick={signOut}>Sign out</Link>
                                             </li>
